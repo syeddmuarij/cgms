@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private dynamoUrl = 'http://localhost:8000/sensordata/';
-  private sensorUrl = 'http://localhost:8000/latestsensordata/';
-  private predictionUrl = 'http://localhost:8000/predictglucose/';
+  private dynamoUrl = 'https://render-backend-o1ba.onrender.com/sensordata/';
+  private sensorUrl = 'https://render-backend-o1ba.onrender.com/latestsensordata/';
+  private predictionUrl = 'https://render-backend-o1ba.onrender.com/predictglucose/';
 
   constructor(private http: HttpClient) { }
 
