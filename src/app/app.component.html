@@ -1,0 +1,37 @@
+
+
+<img src="assets/logo.png" alt="CGMS Logo" class="logo">
+
+<div class="result" *ngIf="showResult">
+  <p>{{predict_data?.message}}</p>
+  <p>{{predict_data?.status}}</p>
+  <p>{{predict_data?.precaution}}</p>
+</div>
+
+<!-- Form will only be displayed if showResult is false -->
+<div *ngIf="!showResult">
+  <div class="d-grid gap-1">
+    <button class="btn btn-primary main-button" type="button" (click)="fetchDynamoHealthData()">Refresh Data</button>
+  </div>
+  <div class="d-grid gap-1">
+    <button class="btn btn-primary main-button" type="button" (click)="FetchUserHealthData()">Device Data</button>
+  </div>
+
+  <form class="form" [formGroup]="userform" (ngSubmit)="Sendheartdata(userform.value)">
+    <div class="form-floating mb-4">
+      <input type="text" class="form-control" id="Gender" placeholder="Gender" formControlName="GENDER">
+      <label for="Gender">Gender</label>
+    </div>
+    <div class="form-floating mb-4">
+      <input type="text" class="form-control" id="Age" placeholder="Age" formControlName="AGE">
+      <label for="Age">Age</label>
+    </div>
+    <div class="form-floating mb-4">
+      <input type="text" class="form-control" id="NIRValue" placeholder="NIR Value" formControlName="NIR" [value]="health_data?.L">
+      <label for="NIRValue">NIR Value</label>
+    </div>
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary button" type="submit">Predict</button>
+    </div>
+  </form>
+</div>

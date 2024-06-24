@@ -1,0 +1,46 @@
+
+
+/* CSS to style the logo */
+.logo {
+    width: 180px; /* Adjust the width as needed */
+    height: 130px; /* Set the height manually */
+    margin: 20px auto; /* Center the logo horizontally and provide some spacing */
+    display: block; /* Ensure the logo is displayed as a block element */
+}
+
+.form {
+    margin-top: 3%;
+    margin-left: 23%;
+    margin-right: 20%;
+}
+
+.button {
+    margin-top: 3%;
+    background: linear-gradient(45deg, pink, purple);
+    color: whitesmoke;
+}
+
+.main-button {
+    margin-top: 1%;
+    background: linear-gradient(45deg, pink, purple);
+    color: whitesmoke;
+    margin-left: 23%;
+    margin-right: 20%;
+}
+
+.result{
+    margin-left: 38%;
+    padding-top: 5%;
+    color: whitesmoke;
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .main-logo {
+        margin-top: 35%;
+    }
+
+    .form {
+        margin-top: 20%;
+    }
+}
