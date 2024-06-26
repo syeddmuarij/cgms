@@ -1,6 +1,8 @@
-
-
 <img src="assets/logo.png" alt="CGMS Logo" class="logo">
+
+<div class="centered-button">
+  <button class="btn main-button" (click)="togglePatientData()">Press to start App</button>
+</div>
 
 <div class="result" *ngIf="showResult">
   <p>{{predict_data?.message}}</p>
@@ -9,29 +11,26 @@
 </div>
 
 <!-- Form will only be displayed if showResult is false -->
-<div *ngIf="!showResult">
-  <div class="d-grid gap-1">
-    <button class="btn btn-primary main-button" type="button" (click)="fetchDynamoHealthData()">Refresh Data</button>
-  </div>
-  <div class="d-grid gap-1">
-    <button class="btn btn-primary main-button" type="button" (click)="FetchUserHealthData()">Device Data</button>
-  </div>
-
+<div *ngIf="!showResult && showPatientData">
   <form class="form" [formGroup]="userform" (ngSubmit)="Sendheartdata(userform.value)">
     <div class="form-floating mb-4">
       <input type="text" class="form-control" id="Gender" placeholder="Gender" formControlName="GENDER">
-      <label for="Gender">Gender</label>
+      <label for="Gender">Gender i.e [M:1, F:0]</label>
     </div>
     <div class="form-floating mb-4">
       <input type="text" class="form-control" id="Age" placeholder="Age" formControlName="AGE">
       <label for="Age">Age</label>
     </div>
-    <div class="form-floating mb-4">
+    <div class="d-flex gap-2">
+      <button class="btn small-button" type="button" (click)="fetchDynamoHealthData()">Place Thumb</button>
+      <button class="btn small-button" type="button" (click)="FetchUserHealthData()">Get Value</button>
+    </div>
+    <div class="form-floating mb-4" style="margin-top: 20px;">
       <input type="text" class="form-control" id="NIRValue" placeholder="NIR Value" formControlName="NIR" [value]="health_data?.L">
       <label for="NIRValue">NIR Value</label>
     </div>
-    <div class="d-grid gap-2">
-      <button class="btn btn-primary button" type="submit">Predict</button>
+    <div class="centered-submit-button">
+      <button class="btn button" type="submit">Get Result</button>
     </div>
   </form>
 </div>
