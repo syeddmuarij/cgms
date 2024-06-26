@@ -17,6 +17,7 @@ export class AppComponent {
   health_data: any;
   predict_data: any;
   showResult: boolean = false;
+  showPatientData: boolean = false;
 
   userform = new FormGroup({
     GENDER: new FormControl(''),
@@ -82,5 +83,9 @@ export class AppComponent {
         }
       }
     );
+  }
+
+  togglePatientData() {
+    this.showPatientData = !this.showPatientData;
   }
 }
